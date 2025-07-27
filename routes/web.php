@@ -34,7 +34,7 @@ use System\Router\Web\Route;
     */ 
     
 Route::get('','HomeController@index','index');
-Route::get('Damavand','HomeController@Damavand','Damavand');
+Route::get('Damavand/Framework','HomeController@Damavand','Damavand-Framework');
 Route::post('store','HomeController@store','store');
 Route::get('edit/{id}','HomeController@edit','edit');
 Route::put('/update/{id}','HomeController@update','update');
