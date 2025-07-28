@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-class HomeController extends Controller
+class Home extends Controller
 {
     
     public function Damavand()
     {
-        echo "Welcome to the Damavand Framework "."<br>"."
+        return "Welcome to the Damavand Framework "."<br>"."
             A framework based on MVC and object-oriented architecture that can make your work easy and enjoyable to use.";
     }
 
