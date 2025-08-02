@@ -10,6 +10,6 @@ class Env
         $dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)));
         $dotenv->load();
         $config=$_ENV[$config];
-        return !empty($config) ? $config : "null";
+        return !empty($config) ? $config : null;
     }
 }

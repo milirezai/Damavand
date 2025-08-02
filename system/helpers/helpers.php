@@ -14,6 +14,7 @@ function view($dir,$vars=[])
 
 function dd($value, $die = true)
 {
+    echo "<pre>";
     var_dump($value);
     if ($die)
         exit();
