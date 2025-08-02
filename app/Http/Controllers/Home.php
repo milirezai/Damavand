@@ -1,18 +1,18 @@
 <?php
 namespace App\Http\Controllers;
+use System\Config\Config;
+use System\Config\EnvConfig;
 
 class Home extends Controller
 {
        
     public function index()
     {
-        return view("welcom",[]);
+        return view("welcom");
     }
 
     public function Damavand()
     {
-        return "Welcome to the Damavand Framework "."<br>"."
-            A framework based on MVC and object-oriented architecture that can make your work easy and enjoyable to use.";
     }
 
     public function create()
