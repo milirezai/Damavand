@@ -116,14 +116,6 @@ function currentDomain()
     return $httpProtocol.$currentUrl;
 }
 
-function redirect($url)
-{
-    $url = trim($url, "/ ");
-    $url = strpos($url , currentDomain()) == 0 ? $url : currentDomain(). "/".$url;
-    header("Location: ".$url);
-    exit;
-}
-
 function back()
 {
     $http_referer= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
@@ -213,5 +205,12 @@ function array_dot($array, $return_array = array(), $return_key = '') {
 
 function currentUrl()
 {
-    currentDomain().$_SERVER['REQUEST_URI'];
+    return currentDomain().$_SERVER['REQUEST_URI'];
+}
+function redirect($url)
+{
+    $url = trim($url, '/ ');
+    $url = strpos($url, currentDomain()) === 0 ?  $url : currentDomain() . '/' . $url;
+    header("Location: ".$url);
+    exit;
 }
