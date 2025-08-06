@@ -235,6 +235,9 @@ trait HasCRUD
         {
             if (isset($this->$attribute))
             {
+                if ($this->$attribute === ''){
+                    $this->$attribute = null;
+                }
                 array_push($fileArray,$this->getAttributeName($attribute)."= ?");
                 $this->inCastsAttributes($attribute) == true ? $this->addValue($attribute,$this->castEncodeValue($attribute,$this->$attribute)) : $this->addValue($attribute,$this->$attribute);
             }
