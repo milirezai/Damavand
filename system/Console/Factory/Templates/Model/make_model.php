@@ -13,7 +13,7 @@ use System\Database\ORM\Model;
 |
 */
 
-class User extends Model
+class ClassName extends Model
 {
 
     /*
@@ -25,7 +25,7 @@ class User extends Model
     | Stores the table name represented by this class.
     |
     */
-    protected $table = 'users';
+    protected $table = 'TableName';
 
     /*
     |--------------------------------------------------------------------------
