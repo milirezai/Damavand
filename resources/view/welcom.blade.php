@@ -36,12 +36,16 @@ body{
 	  padding-right: 12px;
 	  animation: type .5s alternate infinite;
 }
+a{
+    text-decoration: none;
+    color: #888;
+}
     </style>
  </head>
  <body>
  <div id="main">
-    	<div class="fof">
-        		<h1>Welcome to Damavand Framework</h1>
-    	</div>
-</div> </body>
- </html>
+     <div class="fof">
+         <h1>Welcome to <a href="https://github.com/milirezai/Damavand">Damavand</a> Framework</h1>
+     </div>
+ </div> </body>
+</html>

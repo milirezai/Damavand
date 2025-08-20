@@ -34,8 +34,5 @@ use System\Router\Web\Route;
     */ 
     
 Route::get('/','Home@index','index');
-Route::get('Damavand/Framework','Home@Damavand','Damavand-Framework');
-Route::post('store','Home@store','store');
-Route::get('edit/{id}','Home@edit','edit');
-Route::put('/update/{id}','Home@update','update');
-Route::delete('delete/{id}','Home@destroy','delete');
+
+
