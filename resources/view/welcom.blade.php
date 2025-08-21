@@ -2,8 +2,9 @@
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
+    <title>Monarch</title>
+     <link rel="icon" href="<?= asset('image/Monarch-logo.png') ?>" type="image/png">
+     <style>
       *{
     transition: all 0.6s;
 }

@@ -11,7 +11,7 @@ class Make
     {
         $arrayPath = explode(".",$path);
         $directory=$arrayPath[0];
-        $file=$arrayPath[1].'.php';
+        $file=$arrayPath[1].'.template';
         $template = dirname(__DIR__)."/Templates/".$directory.'/'.$file;
         $template = file_get_contents($template);
         return self::replace($template, $search, $replace);
