@@ -219,3 +219,8 @@ function move($file, $path, $name, $width = null, $height = null)
 {
     return System\Service\Support\Upload\Image\ImageUpload::move($file, $path, $name, $width = null, $height = null);
 }
+
+function sendMail($emailAddress, $subject, $body)
+{
+   return System\Service\Support\Mail\Mail::send($emailAddress, $subject, $body);
+}

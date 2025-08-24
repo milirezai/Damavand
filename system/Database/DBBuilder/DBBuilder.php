@@ -11,7 +11,6 @@ class DBBuilder
     public function __construct()
     {
         $this->createTables();
-        die("migrations run successfully");
     }
 
     private function getMigrations(){
@@ -39,19 +38,14 @@ class DBBuilder
         file_put_contents(__DIR__.'/oldTables.db', serialize($value));
     }
 
-    private function createTables()
+    public function createTables()
     {
         $migrations = $this->getMigrations();
         $pdoInstance = DBConnection::dbConnection();
         foreach($migrations as $migration){
             $statement = $pdoInstance->prepare($migration);
-            $statement->execute();
+            $migration = $statement->execute();
         }
-        return true;
-
+        return $migration;
     }
-
-
-
-
 }

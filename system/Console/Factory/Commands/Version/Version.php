@@ -7,7 +7,6 @@ class Version extends Command
 {
     private $name = "-v";
     private $description = 'Version framework';
-    private $sucsessColorMsg = 'green';
 
     public function name()
     {
@@ -19,6 +18,6 @@ class Version extends Command
     }
     public function handle(array $argv)
     {
-        return $this->msg(Env::get('V_FRAMEWORK'),$this->sucsessColorMsg);
+        return $this->_v();
     }
 }

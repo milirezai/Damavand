@@ -12,15 +12,19 @@ return
     |
     */
     'SMTP' => [
-        'Host'       => 'smtp.mailtrap.io',
-        'SMTPAuth'   => true,
-        'Username'   => '33',
-        'Password'   => '22',
-        'Port'       => 587,
+        'PHPMailer' => Env::get('PHPMailer'),
+        'Host'       => Env::get('Host'),
+        'SMTPAuth'   => Env::get('SMTPAuth'),
+        'Username'   => Env::get('Username'),
+        'Password'   => Env::get('Password'),
+        'Port'       => Env::get('Port'),
         'setFrom'    => [
-            'mail'  =>  'support@amlak.com',
-            'name'  =>  'test'
-        ]
+            'mail'  =>  Env::get('mail'),
+            'name'  =>  Env::get('name')
+        ],
+        'SMTPDebug' => Env::get('SMTPDebug'),
+        'CharSet' => Env::get('CharSet'),
+        'HTML' => Env::get('HTML')
     ]
 
 ];

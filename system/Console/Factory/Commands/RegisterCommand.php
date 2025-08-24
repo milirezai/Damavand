@@ -7,5 +7,5 @@ return
     System\Console\Factory\Commands\Help\Help::class,
     System\Console\Factory\Commands\Request\MakeRequest::class,
     System\Console\Factory\Commands\Provider\MakeProvider::class,
-    System\Console\Factory\Commands\Version\Version::class
+    System\Console\Factory\Commands\Version\Version::class,
 ];
