@@ -8,15 +8,11 @@ class Upload
 {
     private static $imageDriver = ['driver' => 'GD'];
 
-    protected static function managingImageUploads($file, $name, $path, $width = null, $height = null)
+    protected static function managingImageUploads($file, $name, $path, $width = 800, $height = 532)
     {
         $managing = new ImageManager(self::$imageDriver);
-        $image = $managing->make($file['tmp_name']);
-        if ($width != null and $height != null)
-        {
-            $image->fit($width,$height);
-        }
+        $image = $managing->make($file['tmp_name'])->fit($width,$height);
         $image->save($path.$name);
-        return $path.$name;
+        return '/'.$path.$name;
     }
 }

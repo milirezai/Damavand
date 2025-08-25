@@ -222,9 +222,9 @@ function redirect($url)
     exit;
 }
 
-function move($file, $path, $name, $width = null, $height = null)
+function move($file, $path, $name, $width = 800, $height = 532)
 {
-    return System\Service\Support\Upload\Image\ImageUpload::move($file, $path, $name, $width = null, $height = null);
+    return System\Service\Support\Upload\Image\ImageUpload::move($file, $path, $name, $width, $height);
 }
 
 function sendMail($emailAddress, $subject, $body)

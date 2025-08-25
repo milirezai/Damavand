@@ -7,6 +7,7 @@ class Composer
     private static $instance;
     private $vars = [];
     private $viewArray = [];
+    private $registerViewArray = [];
 
     private function __construct()
     {
@@ -15,27 +16,28 @@ class Composer
 
     private function registerView($name, $callback)
     {
-        if(in_array(str_replace('.', '/', $name), $this->viewArray) || $name == '*')
-        {
-            $viewVars = $callback();
-            foreach($viewVars as $key => $value)
-            {
-                $this->vars[$key] = $value;
-            }
-            if(isset($this->viewArray[$name])){
-                unset($this->viewArray[$name]);
-            }
-        }
-
+        $this->registerViewArray[$name] = $callback;
     }
 
-     private function setViewArray($viewArray)
+    private function setViewArray($viewArray)
     {
         $this->viewArray = $viewArray;
     }
 
     private function getViewVars()
     {
+        foreach ($this->viewArray as $view)
+        {
+            if (isset($this->registerViewArray[str_replace('/','.',$view)]))
+            {
+                $callback = $this->registerViewArray[str_replace('/','.',$view)];
+                $viewVars = $callback();
+                foreach ($viewVars as $key => $value)
+                {
+                    $this->vars[$key] = $value;
+                }
+            }
+        }
         return $this->vars;
     }
 
@@ -46,20 +48,20 @@ class Composer
         {
             case "view":
                 return call_user_func_array(array($instance, "registerView"), $arguments);
-            break;
+                break;
             case "setViews":
                 return call_user_func_array(array($instance, "setViewArray"), $arguments);
-            break;
+                break;
             case "getVars":
                 return call_user_func_array(array($instance, "getViewVars"), $arguments);
-            break;
+                break;
         }
     }
 
     private static function getInstance()
     {
         if(empty(self::$instance))
-        self::$instance = new self;
+            self::$instance = new self;
         return self::$instance;
     }
 }

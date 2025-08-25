@@ -34,5 +34,6 @@ use System\Router\Web\Route;
     */ 
     
 Route::get('/','Home@index','index');
+Route::get('/home','Home@index','index');
 
 
