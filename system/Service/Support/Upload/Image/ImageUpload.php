@@ -6,7 +6,7 @@ use System\Service\Support\Upload\Upload;
 
 class ImageUpload extends Upload
 {
-    public static function move($file, $path, $name, $width = 800, $height = 532)
+    public static function move($file, $path, $name, $width = null, $height = null)
     {
         $path = self::pathExists($path);
         $name = self::fullName($name, $file);

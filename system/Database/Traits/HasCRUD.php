@@ -20,19 +20,17 @@ trait HasCRUD
     # whereMethod
     protected function whereMethod($attribute,$firestValue,$secondValue = null)
     {
-        if ($secondValue === null)
-        {
-            $condition= $this->getAttributeName($attribute)."= ?";
-            $this->addValue($attribute,$firestValue);
+        if($secondValue === null){
+            $condition = $this->getAttributeName($attribute).' = ?';
+            $this->addValue($attribute, $firestValue);
         }
-        else
-        {
-            $condition= $this->getAttributeName($attribute)." ".$firestValue." ?";
-            $this->addValue($attribute,$secondValue);
+        else{
+            $condition = $this->getAttributeName($attribute).' '.$firestValue.' ?';
+            $this->addValue($attribute, $secondValue);
         }
-        $operator= "AND";
-        $this->setWhere($operator,$condition);
-        $this->setAllowedMethods(["wher","wherOr","wherIn","wherNull","wherNotNull","limit","orderBy","get","paginate"]);
+        $operator = 'AND';
+        $this->setWhere($operator, $condition);
+        $this->setAllowedMethods(['where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate']);
         return $this;
     }
     # whereOrMethod
@@ -50,16 +48,16 @@ trait HasCRUD
         }
         $operator= "OR";
         $this->setWhere($operator,$condition);
-        $this->setAllowedMethods(["wher","wherOr","wherIn","wherNull","wherNotNull","limit","orderBy","get","paginate"]);
+        $this->setAllowedMethods(["where","whereOr","whereIn","whereNull","whereNotNull","limit","orderBy","get","paginate"]);
         return $this;
     }
     # whereNullMethod
     protected function whereNullMethod($attribute)
     {
-        $condition= $this->getAttributeName($attribute)."IS NULL";
-        $operator= "AND";
-        $this->setWhere($operator,$condition);
-        $this->setAllowedMethods(["wher","wherOr","wherIn","wherNull","wherNotNull","limit","orderBy","get","paginate"]);
+        $condition =  $this->getAttributeName($attribute).' IS NULL ';
+        $operator = 'AND';
+        $this->setWhere($operator, $condition);
+        $this->setAllowedMethods(['where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate']);
         return $this;
     }
     # whereNotNullMethod
@@ -68,7 +66,7 @@ trait HasCRUD
         $condition= $this->getAttributeName($attribute)." IS NOT NULL";
         $operator= "AND";
         $this->setWhere($operator,$condition);
-        $this->setAllowedMethods(["wher","wherOr","wherIn","wherNull","wherNotNull","limit","orderBy","get","paginate"]);
+        $this->setAllowedMethods(["where","whereOr","whereIn","whereNull","whereNotNull","limit","orderBy","get","paginate"]);
         return $this;
     }
     # whereInMethod
@@ -85,7 +83,7 @@ trait HasCRUD
             $condition= $this->getAttributeName($attribute)." IN (".implode(" , ",$valuesArray).")";
             $operator= "AND";
             $this->setWhere($operator,$condition);
-            $this->setAllowedMethods(["wher","wherOr","wherIn","wherNull","wherNotNull","limit","orderBy","get","paginate"]);
+            $this->setAllowedMethods(["where","whereOr","whereIn","whereNull","whereNotNull","limit","orderBy","get","paginate"]);
             return $this;
         }
     }
