@@ -87,6 +87,6 @@ class User extends Model
 
     protected $updatedAT= 'updated_at';
 
-    protected $deletedAT= null;
+    protected $deletedAT= 'deleted_at';
 
 }

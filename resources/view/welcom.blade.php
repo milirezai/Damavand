@@ -1,52 +1,15 @@
-<html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monarch</title>
-     <link rel="icon" href="<?= asset('image/Monarch-logo.png') ?>" type="image/png">
-     <style>
-      *{
-    transition: all 0.6s;
-}
+@extends('layouts.app')
 
-html {
-    height: 100%;
-}
+@section('head-tag')
+    <title>Welcome</title>
+@endsection
 
-body{
-    font-family: 'Lato', sans-serif;
-    color: #888;
-    margin: 0;
-}
+@section('content')
 
-#main{
-    display: table;
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-}
+    <div id="main">
+        <div class="fof">
+            <h1>Welcome to <a href="https://github.com/milirezai/Monarch">Monarch</a> Framework</h1>
+        </div>
+    </div>
 
-.fof{
-	  display: table-cell;
-	  vertical-align: middle;
-}
-
-.fof h1{
-	  font-size: 50px;
-	  display: inline-block;
-	  padding-right: 12px;
-	  animation: type .5s alternate infinite;
-}
-a{
-    text-decoration: none;
-    color: #888;
-}
-    </style>
- </head>
- <body>
- <div id="main">
-     <div class="fof">
-         <h1>Welcome to <a href="https://github.com/milirezai/Monarch">Monarch</a> Framework</h1>
-     </div>
- </div> </body>
-</html>
+@endsection

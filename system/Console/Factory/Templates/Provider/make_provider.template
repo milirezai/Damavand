@@ -1,9 +1,8 @@
 <?php
-
 namespace App\Providers;
 
-use App\User;
 use System\View\Composer;
+
 class ClassName extends Provider
 {
 

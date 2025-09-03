@@ -1,26 +1,9 @@
 <?php
 
-use System\Router\Web\Route;
+use System\Router\Http\Api\Route;
+use App\Http\Controllers\ApiController;
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Route post
-    |--------------------------------------------------------------------------
-    |
-    |  
-    |  
-    |
-    |--------------------------------------------------------------------------
-    | Route get
-    |--------------------------------------------------------------------------
-    |
-    |
-    |
-    |
-    */
 
-    Route::get('','Home@index','index');
-    Route::get('create','Home@create','create');
-    Route::post('store','Home@store','store');
-    Route::get('edit/{id}','Home@edit','edit');
+
+ Route::get('/home',[ApiController::class,'api'],'home.api');

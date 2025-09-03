@@ -154,10 +154,11 @@ function findRouteByName($name)
     return $route;
 }
 
+
 function route($name,$parameter = [])
 {
     if (!is_array($parameter)){
-       throw new Exception("This value must be in array form!");
+        throw new Exception("This value must be in array form!");
     }
     $route = findRouteByName($name);
     if ($route === null){

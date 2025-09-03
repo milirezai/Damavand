@@ -26,14 +26,16 @@ class Routing{
       if(empty($match))
       {
         $this->error404();
+        exit;
       }
       $classPath = str_replace('\\', '/', $match["class"]);
-      $path = Config::get("app.BASE_DIR") . "/app/Http/Controllers/".$classPath.".php";
-      if(!file_exists($path))
+        $path = Config::get("app.BASE_DIR") .'/'.$classPath.".php";
+        if(!file_exists($path))
       {
-        $this->error404();
+          $this->error404();
+          exit;
       }
-      $class = "\App\Http\Controllers\\".$match["class"];
+      $class = $match["class"];
       $object = new $class();
       if(method_exists($object, $match["method"]))
       {
@@ -46,11 +48,13 @@ class Routing{
         else
         {
           $this->error404();
+            exit;
         }
       }
       else
       {
         $this->error404();
+          exit;
       }
     }
 
@@ -99,8 +103,7 @@ class Routing{
     public function error404()
     {
       http_response_code(404);
-      include __DIR__ . DIRECTORY_SEPARATOR .'404'.DIRECTORY_SEPARATOR .'index.php';
-      exit;
+        return view('errors.404');
     }
 
     public function methodField()
