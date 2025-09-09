@@ -6,11 +6,11 @@ namespace System\Request;
 use System\Request\Traits\HasFileValidationRules;
 use System\Request\Traits\HasRunValidation;
 use System\Request\Traits\HasValidationRules;
-use System\Request\Traits\Upload;
+use System\Request\Traits\Optional;
 
 class Request
 {
-    use HasFileValidationRules,HasRunValidation,HasValidationRules,Upload;
+    use HasFileValidationRules,HasRunValidation,HasValidationRules,Optional;
     protected $errorExist = false;
     protected $request;
     protected $files = null;

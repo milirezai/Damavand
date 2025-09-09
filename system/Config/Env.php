@@ -5,11 +5,23 @@ use Dotenv\Dotenv;
 
 class Env
 {
-    public  function get($config)
+    public static  function get($config, $default = null)
+    {
+        if ($default == null)
+        {
+            $config = self::envKey($config);
+            return !empty($config) ? $config : null;
+        }
+        else
+        {
+            return $default;
+        }
+    }
+    private static function envKey($key)
     {
         $dotenv = Dotenv::createImmutable(dirname(dirname(__DIR__)));
         $dotenv->load();
-        $config=$_ENV[$config];
-        return !empty($config) ? $config : null;
+        $config = $_ENV[$key];
+        return $config;
     }
 }

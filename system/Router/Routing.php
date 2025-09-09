@@ -14,7 +14,7 @@ class Routing{
 
     public function __construct()
     {
-        $this->current_route = explode('/', Config::get("app.CURRENT_ROUT"));
+        $this->current_route = explode('/', config('app.CURRENT_ROUT'));
         $this->method_field = $this->methodField();
         global $routes;
         $this->routes = $routes;
@@ -29,7 +29,7 @@ class Routing{
         exit;
       }
       $classPath = str_replace('\\', '/', $match["class"]);
-        $path = Config::get("app.BASE_DIR") .'/'.$classPath.".php";
+        $path =  config('app.BASE_DIR').'/'.$classPath.".php";
         if(!file_exists($path))
       {
           $this->error404();

@@ -26,7 +26,7 @@ class DBConnection
             $options=array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
             try
             {
-                return new PDO("mysql:host=".Config::get("database.DBHOST").";dbname=".Config::get("database.DBNAME"),Config::get("database.DBUSERNAME"),Config::get("database.DBPASSWORD"),$options);
+                return new PDO("mysql:host=".config("database.DBHOST").";dbname=".config("database.DBNAME"),config("database.DBUSERNAME"),config("database.DBPASSWORD"),$options);
             }
             catch (PDOException $e)
             {

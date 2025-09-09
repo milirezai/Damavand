@@ -21,12 +21,12 @@ function dd($value, $die = true)
 }
 
 
-function html($text)
+function removeTags($text)
 {
     return html_entity_decode($text);
 }
 
-function old($name)
+function old($name, $defult = null)
 {
     if (isset($_SESSION["temporary_old"][$name]))
     {
@@ -34,9 +34,10 @@ function old($name)
     }
     else
     {
-        return null;
+        return $defult;
     }
 }
+
 
 function flash($name, $msg = null)
 {
@@ -105,7 +106,7 @@ function erororExists($name = null)
     }
 }
 
-function errorAll()
+function errors()
 {
     if (isset($_SESSION["temporary_errorFlash"])) {
         $temporary = $_SESSION["temporary_errorFlash"];
@@ -223,12 +224,48 @@ function redirect($url)
     exit;
 }
 
-function move($file, $path, $name, $width = null, $height = null)
+function redirectRoute($route)
 {
-    return System\Service\Support\Upload\Image\ImageUpload::move($file, $path, $name, $width, $height);
+    return redirect(route($route));
 }
-
 function sendMail($emailAddress, $subject, $body)
 {
    return System\Service\Support\Mail\Mail::send($emailAddress, $subject, $body);
+}
+function byMethod($method)
+{
+    return htmlCode($method);
+}
+function htmlCode($method)
+{
+    return "<input type='hidden' name='_method' value=$method>";
+}
+
+function with($name, $value)
+{
+    \System\Session\Session::set($name, $value);
+    return new System\Session;
+}
+
+function session($name)
+{
+    $session = \System\Session\Session::get($name);
+    if ($session)
+        return $session;
+    else
+        return false;
+}
+
+function sessionRemove($name)
+{
+    \System\Session\Session::remove($name);
+}
+
+function config($key)
+{
+    $config = \System\Config\Config::get($key);
+    if ($config)
+        return $config;
+    else
+        return  false;
 }

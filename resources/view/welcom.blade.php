@@ -12,4 +12,10 @@
         </div>
     </div>
 
+        <form id="main" action="<?= route('home.upload') ?>" method="post" enctype="multipart/form-data" id="form">
+
+        <input type="file" name="image">
+        <button type="submit">dave</button>
+    </form>
+
 @endsection

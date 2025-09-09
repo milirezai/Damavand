@@ -3,16 +3,30 @@
 namespace System\Service\Support\Upload;
 
 use Intervention\Image\ImageManager;
+use System\Service\Support\Upload\Image\ToolsService;
 
-class Upload
+class Upload extends ToolsService
 {
-    private static $imageDriver = ['driver' => 'GD'];
-
-    protected static function managingImageUploads($file, $name, $path, $width = 800, $height = 532)
+    public static function save()
     {
-        $managing = new ImageManager(self::$imageDriver);
-        $image = $managing->make($file['tmp_name'])->fit($width,$height);
-        $image->save($path.$name);
-        return '/'.$path.$name;
+        self::provider();
+        if (self::getWidth() != null and self::getHeight() != null)
+            return self::fitAndSaveMethod();
+        else
+            return self::saveMethod();
+    }
+
+    protected static function saveMethod()
+    {
+        $upload = new ImageManager(['driver' => config('image.driver')]);
+        $result = $upload->make(self::getRealPath())->save(self::getImageAddress());
+        return $result ? self::getImageAddress() : false;
+    }
+
+    private function fitAndSaveMethod()
+    {
+        $upload = new ImageManager(['driver' => config('image.driver')]);
+        $result = $upload->make(self::getRealPath())->fit(self::getWidth(), self::getHeight())->save(self::getImageAddress());
+        return $result ? self::getImageAddress() : false;
     }
 }
