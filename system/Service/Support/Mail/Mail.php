@@ -10,6 +10,10 @@ class Mail
 {
     public function send($emailAddress, $subject, $body)
     {
+       return $this->sendMethod($emailAddress, $subject, $body);
+    }
+    public function sendMethod($emailAddress, $subject, $body)
+    {
         $mail = new PHPMailer(config('mail.SMTP.PHPMailer'));
 
         try {

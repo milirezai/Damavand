@@ -8,11 +8,6 @@ use System\Database\DBConnection\DBConnection;
 class DBBuilder
 {
 
-    public function __construct()
-    {
-        $this->createTables();
-    }
-
     private function getMigrations(){
 
         $oldMigrationsArray = $this->getOldMigration();

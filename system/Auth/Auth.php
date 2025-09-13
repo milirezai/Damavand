@@ -2,7 +2,7 @@
 
 namespace System\Auth;
 
-use App\User;
+use App\Model\User;
 use System\Session\Session;
 
 class Auth

@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\User;
-use System\View\Composer;
 class AppServiceProvider extends Provider
 {
 
